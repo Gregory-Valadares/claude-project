@@ -91,9 +91,6 @@ pc_entusiasta = Configuracao_pc(
 
 lista_pcs = [pc_entrada, pc_intermediario, pc_greg, pc_entusiasta]
 
-for computador in lista_pcs:
-    print(f"{computador}\n")
-
 
 pc_gamer_elite = ConfiguracaoGamer(
     "PC Gamer Elite",
@@ -162,5 +159,7 @@ pc_gamer_legacy = ConfiguracaoGamer(
 
 lista_pc_gamers = [pc_gamer_elite, pc_gamer_gladiator, pc_gamer_spartan, pc_gamer_valkyrie, pc_gamer_legacy]
 
-for computador in lista_pc_gamers:
+todos_os_pcs = lista_pcs + lista_pc_gamers
+
+for computador in todos_os_pcs:
     print(f"{computador}\n")
