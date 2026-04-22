@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 PRATICANDO PARA RELEMBRAR E RECUPERAR O TEMPO QUE EU ESTAVA DOENTE. VAMOS PRA CIMA!
 '''
@@ -26,7 +27,7 @@ class Configuracao_pc:
             f"Cooler:         {self.cooler}\n"
             f"Fonte:          {self.fonte}\n"
             f"Preco:          R${self.preco}\n"
-            f"Código:         {self.code}\n"
+            f"Codigo:         {self.code}\n"
         )
 
 class ConfiguracaoGamer(Configuracao_pc):
@@ -48,7 +49,7 @@ class ConfiguracaoGamer(Configuracao_pc):
             f"Monitor:        {self.monitor}\n"
             F"Headset:        {self.headset}\n"
             f"Preco:          R${self.preco}\n"
-            f"Código:         {self.code}\n"
+            f"Codigo:         {self.code}\n"
         )
 
 pc_greg = Configuracao_pc(
