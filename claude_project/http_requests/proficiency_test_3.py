@@ -1,9 +1,11 @@
 import requests
+from pprint import pprint
 
 def buscar_cep(cep):
     try:
-        response = requests.get(f"https://viacep.com.br/ws/{cep}/json/") # Três Marias: 39205000
+        response = requests.get(f"https://viacep.com.br/ws/{cep}/json/") # Três Marias: 39205000 ou Manaus: 69058842
         dados = response.json()
+        #print(pprint(dados))
     except:
         print(f"Dados inválidos. Digite um CEP válido.")
         return None
@@ -16,20 +18,13 @@ def buscar_cep(cep):
         return None
 
     else:
-        print(
-            f"\n"
-            f"Logradouro: {dados['logradouro']}\n"
-            f"Bairro:     {dados['bairro']}\n"
-            f"Cidade:     {dados['localidade']}\n"
-            f"Estado:     {dados['uf']}\n"
-        )
-        return(
-            f"\n"
-            f"Logradouro: {dados['logradouro']}\n"
-            f"Bairro:     {dados['bairro']}\n"
-            f"Cidade:     {dados['localidade']}\n"
-            f"Estado:     {dados['uf']}\n"
-        )
+        info = {
+            "Logradouro": dados.get("logradouro"),
+            "Bairro": dados.get("bairro"),
+            "Cidade": dados.get("localidade"),
+            "Estado": dados.get("estado")
+        }
+        return info
 
 # FUNÇÃO ACIMA ^^^  ---(XXX)--- INTERAÇÃO COM O USUÁRIO ABAIXO vvv:
 finalizar = False
@@ -47,7 +42,10 @@ while not finalizar:
         except:
             print("Caracteres inválidos. Digite 8 números")
 
-    buscar_cep(cep)
+    resultado = buscar_cep(cep)
+    if resultado:
+        for chave, valor in resultado.items():
+            print(f"{chave}: {valor}")
 
     while True:
         try:
