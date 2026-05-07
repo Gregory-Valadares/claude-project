@@ -1,9 +1,13 @@
+import os
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
+load_dotenv()
+
 # Configurações
-SECRET_KEY = "sua-chave-secreta-troque-em-producao"
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 EXPIRACAO_MINUTOS = 30
 
